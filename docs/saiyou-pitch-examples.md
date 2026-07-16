@@ -1,0 +1,265 @@
+# 採用ピッチ資料 実例集（日本国内・業界横断）
+
+**作成日**: 2026年7月
+**対象**: 主に過去5年（2021〜2026年）に公開・更新された日本企業の採用ピッチ資料（会社紹介資料／カルチャーデック）。ブームの起点となった2018〜2020年の代表例も収録。
+**収録数**: 実例約60社＋大型まとめ記事12本（総掲載数ベースで500社超へのポインタ）
+**関連資料**: `docs/sales-mass-hiring-research.md`（調査本編）、`docs/21ki-sales-hiring-plan.md`（21期計画。フェーズ1施策「採用ピッチ資料v1」の制作参考資料として本書を使用）
+
+> 読み方：URL・公開年はWeb検索ベースで、資料は随時更新・URL変更されるため閲覧時点の最新版をご確認ください。裏取りが不完全な情報には「※要確認」を付しています。
+
+---
+
+## 目次
+
+1. [採用ピッチ資料とは・10年の歴史](#1-採用ピッチ資料とは10年の歴史)
+2. [効果数値が公表されている事例（最重要）](#2-効果数値が公表されている事例最重要)
+3. [実例カタログ①：不動産・住宅・建設（当社と同業）](#3-実例カタログ不動産住宅建設当社と同業)
+4. [実例カタログ②：営業会社・人材業界（営業職採用の参考）](#4-実例カタログ営業会社人材業界営業職採用の参考)
+5. [実例カタログ③：IT・SaaS・スタートアップ（本流・最多）](#5-実例カタログitsaasスタートアップ本流最多)
+6. [実例カタログ④：物流・食品・農業・医療・広告ほか](#6-実例カタログ物流食品農業医療広告ほか)
+7. [実例カタログ⑤：官公庁・自治体](#7-実例カタログ官公庁自治体)
+8. [公開例が見つからなかった業界（空白地帯）](#8-公開例が見つからなかった業界空白地帯)
+9. [優れた資料の共通要素と標準構成](#9-優れた資料の共通要素と標準構成)
+10. [直近トレンド（2024〜2026）](#10-直近トレンド20242026)
+11. [大型まとめ記事・リンク集](#11-大型まとめ記事リンク集)
+12. [当社（東京ビッグハウス）版ピッチ資料への示唆](#12-当社東京ビッグハウス版ピッチ資料への示唆)
+
+---
+
+## 1. 採用ピッチ資料とは・10年の歴史
+
+**採用ピッチ資料**＝候補者向けに会社・事業・組織・カルチャー・待遇・課題までを開示するスライド資料。面接前後の情報格差を無くし、応募の後押しとミスマッチ防止（セルフスクリーニング）を同時に狙う。
+
+| 年 | 出来事 |
+|---|---|
+| 2009 | 源流：Netflixが「カルチャーデック」（125枚）を公開。閲覧2,000万回超、「シリコンバレー最高の文書」と評される（[解説](https://tkybpp.hatenablog.com/entry/2018/05/16/073000)） |
+| 2018年8月 | **SmartHRが面接用スライドをSpeaker Deckで公開**（日本のブームの起点） |
+| 2019年2月 | SmartHR宮田CEO（当時）がブログで成果公表：**応募数5.3倍・閲覧40万回超**（[原典ブログ](https://blog.shojimiyata.com/entry/2019/02/28/115119)）。同月ミラティブ「採用候補者さまへの手紙」（44ページ）が続きバズ。「採用ピッチ資料」の呼称が定着 |
+| 2019年12月 | BRIDGE「この採用スライドがすごい11選」（[記事](https://thebridge.jp/2019/12/hr-slide-best-11-2019)）。優良資料は約40ページが目安との分析 |
+| 2020年12月 | 「採用ピッチ資料カオスマップ」公開、100社規模に（[記事](https://digital-shift.jp/flash_news/FN201223_1)） |
+| 2021〜2023 | SaaS企業の標準装備化。制作代行市場が成立（HeaR・まるごと人事・hypex・Cone等）。まとめ記事が30選→120選→149/150選へ |
+| 2024〜2026 | 創業直後からの公開が当たり前に（newmo等）。Notion化・職種別分割・動画化・給与テーブル公開が進む。**官公庁（京都市・デジタル庁）まで浸透** |
+
+---
+
+## 2. 効果数値が公表されている事例（最重要）
+
+| 企業 | 業界 | 効果 | 内容 | 出典 |
+|---|---|---|---|---|
+| **SmartHR** | HR SaaS | **応募数5.3倍・閲覧40万回超**／「給与が低い」という噂が消えた | 2018年公開。給与テーブル・昇給実績まで開示 | [宮田氏ブログ](https://blog.shojimiyata.com/entry/2019/02/28/115119)、[BRIDGE](https://thebridge.jp/2019/02/smarthr-reveals-hr-slide-results) |
+| **ミラティブ** | ライブ配信 | **公開日の応募数が通常の約4倍**、書類通過率向上、21万PV（2020年1月時点） | 「採用候補者さまへの手紙」44ページ。セルフスクリーニング効果も | [doda人事ジャーナル](https://www.dodadsj.com/content/190402_mirrativ/)、[HRzine](https://hrzine.jp/article/detail/1653) |
+| **キャディ** | 製造業DX | 会社紹介資料 **累計140万PV**（※要確認） | 職種別分冊＋「CTOからの手紙」＋給与テーブル公開 | [Wantedly記事](https://sg.wantedly.com/companies/caddi/post_articles/189090) |
+| **10X** | 小売DX | Culture Deck **通算64万PV超**（2019年〜） | 人事制度・給与レンジまで掲載。CEO自ら更新 | [FastGrow](https://www.fastgrow.jp/articles/culture-book-01) |
+| **メルカリ** | C2C | エンジニア採用資料 **公開後半年で11万PV超** | 日英併記・Fact Book等の資料群 | [BRIDGE](https://thebridge.jp/2019/12/hr-slide-best-11-2019) |
+| **ヤマト住建** | 住宅 | **採用人数の倍増**（※要確認） | 採用体制見直し＋ピッチ資料活用 | [アズライト事例](https://azu-rite.co.jp/clumn/recruiting-pitch-deck) |
+| **手島精管** | 製造（精密管） | 採用広報・ピッチ活用で**1年で30名採用** | hypex支援先の非IT事例 | [hypex](https://hypex.jp/articles/saiyopitch-is) |
+| 製造業（社名非公開） | 製造 | **内定辞退0件** | 内定者にカルチャー重視ピッチを送付 | [AchieveHR](https://achievehr.jp/column/recruitment-pitch-deck/) |
+| 中小企業（社名非公開） | 全般 | 会社案内転用→専用ピッチ再制作で**応募率3倍**（※要確認） | 「会社案内の流用では効かない」ことの傍証 | [comtri](https://comtri.jp/saiyo-pitch-shiryo-sme/) |
+| 支援会社の集計値（まるごと人事・HeaR等） | 全般 | スカウト返信率**+2〜3pt**／説明会後応募率**+約4%**／スカウト添付で有効応募率**2倍以上**／一次選考合格率**5割→8割** | 制作会社の自社集計であり第三者検証なしの点に留意 | [まるごと人事](https://marugotoinc.jp/pitch_case/)、[hypex](https://hypex.jp/articles/saiyopitch-is) |
+
+**効果の3類型**: ①応募数増（2〜5倍）、②歩留まり改善（返信率・通過率・承諾率）、③ミスマッチ減（辞退0件・早期離職減）。
+
+---
+
+## 3. 実例カタログ①：不動産・住宅・建設（当社と同業）
+
+| 企業 | 事業 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|---|
+| **TERASS** | 不動産売買仲介（エージェント型） | [会社説明資料](https://speakerdeck.com/eguri/terasshui-she-shuo-ming-zi-liao)／[Company Deck 2025](https://speakerdeck.com/eguri/terass-company-deck-2025) | 毎年更新・2025年版あり | **不動産営業職（エージェント）向けの独立資料**を持つ。全社版・エンジニア版と分冊 |
+| **estie** | 不動産テック（商業用不動産データ） | [Company Profile](https://speakerdeck.com/estie/company-profile) | 2021頃〜更新 | 「商業用不動産315兆円市場」と市場規模起点の事業説明が明快 |
+| **ヤマト住建** | 注文住宅（神戸） | 採用サイトで活用（[採用サイト](https://yamatojkhr.com/)）※公開URL要確認 | 2023〜25頃 | ピッチ資料活用で**採用人数倍増**（※要確認）。非上場ハウスメーカーの成功例 |
+| **アックス** | 建物改修・防水・塗装（神奈川） | 制作事例として紹介（[MACHI TERASU](https://machiterasu.com/column/saiyopitch_service)） | 2023以降 | **平均年齢27歳**を訴求。改修需要の需給ギャップ図で業界の将来性を提示。地方中小建設業の例 |
+| **アンドパッド** | 建設DX SaaS | [会社説明資料](https://speakerdeck.com/andpad_hr88/andpad-hui-she-shuo-ming-zi-liao)／[幹部向けSecond Act](https://speakerdeck.com/andpad_hr88/andpad-second-act) | 2021年9月〜 | **経営幹部候補向けの別冊**を持つのがユニーク |
+| **キャディ** | 製造業DX（図面SaaS） | [会社紹介・採用説明資料](https://speakerdeck.com/caddi_eng/caddi-recruit-202108)／[Culture Book](https://speakerdeck.com/caddi_eng/caddi-culture-book) | 2019頃〜（2021年8月版が著名） | **給与テーブル・組織図を公開**。「CTOからの手紙」形式。累計140万PV（※要確認） |
+| **アルダグラム** | 建設・製造の現場DX | まとめ記事掲載（[かけはし25選](https://www.kakehashi-skysol.co.jp/career-chiebukuro/careerdoc/)） | ー | ノンデスクワーク業界支援を表紙の世界各国写真で表現 |
+
+**同業の含意**: 不動産・住宅の「営業職向け独立ピッチ」はTERASSが先行するのみで、**戸建・投資用不動産の販売会社ではほぼ空白**。当社が営業職特化ピッチを公開すれば業界内で希少性が高い。
+
+---
+
+## 4. 実例カタログ②：営業会社・人材業界（営業職採用の参考）
+
+| 企業 | 事業 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|---|
+| **キャリアデザインセンター** | 転職メディアtype運営 | [新卒採用ピッチ／営業職](https://speakerdeck.com/cdcsaiyo/xin-zu-cai-yong-pitutizi-liao-slash-ying-ye-zhi-zhu-kiyariadezainsenta)／[27卒版](https://speakerdeck.com/cdcsaiyo/27zu-xin-zu-cai-yong-pitutizi-liao-slash-ying-ye-zhi-zhu-kiyariadezainsenta) | 25卒〜27卒版を毎年公開 | **「営業職」職種特化×卒年別**の新卒ピッチの代表例。当社の新卒営業採用の直接のベンチマーク |
+| **セレブリックス** | 営業代行・営業コンサル | [会社説明資料](https://speakerdeck.com/cerebrix/hui-she-shuo-ming-zi-liao)／[行動指針 CEREBRIX PRIDE](https://speakerdeck.com/kitakawa27/sereburitukusuren-cai-porisicerebrix-pride) | 2023頃〜 | 「営業職の未来」とキャリアパス（メンバー→GM）を明示。**カルチャー資料を別建て公開**する営業会社の代表 |
+| **ネオキャリア** | 総合人材 | [採用ピッチ資料](https://speakerdeck.com/neo_recruit/zhu-shi-hui-she-neokiyaria_cai-yong-pitutizi-liao) | 2022頃〜※要確認 | 大手人材会社の標準形 |
+| **UZUZ** | 20代特化人材紹介 | [会社説明資料（Docswell）](https://docswell.com/s/uzuz/KQYGXZ-2023-01-17-204814) | 2023年1月 | Speaker Deckでなく**国産Docswell**利用例 |
+| **プレックス** | ノンデスク産業特化人材 | [Recruiting Pitch](https://speakerdeck.com/plex/recruiting-pitch) | 2021頃〜 | 物流・製造・建設などエッセンシャル産業の課題解決を訴求 |
+| **Hajimari** | IT人材・フリーランス | [会社紹介資料](https://speakerdeck.com/hajimari/company-information-materials-of-hajimari-inc) | 2021頃〜 | **事業部単位の分冊**を細かく公開 |
+| **ミライフ** | 人材紹介 | まとめ記事掲載（[マルゴト149選](https://marugotoinc.jp/blog/saiyo-pitch-case/)）※URL要確認 | ー | 家族ケア時短・ペット含む特別有給などライフステージ対応の福利厚生を丁寧に説明 |
+| **HeaR** | 採用支援 | [Company Profile](https://speakerdeck.com/hear/company-profile) | 2019頃〜 | 採用支援会社自身のピッチ。「事例120選」等のナレッジとセットで業界標準を形成 |
+
+---
+
+## 5. 実例カタログ③：IT・SaaS・スタートアップ（本流・最多）
+
+### 5-1. 先駆者・著名事例
+
+| 企業 | 事業 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|---|
+| **SmartHR** | 労務SaaS | [会社紹介資料](https://speakerdeck.com/smarthr_pr/smarthr-company-introduction1) | **2018年8月**（起点）〜継続更新 | 給与テーブル・昇給実績・課題まで開示。応募5.3倍 |
+| **メルカリ** | C2C | [Engineering紹介](https://speakerdeck.com/mercari/engineering-at-mercari-group-japanese)／[Fact Book](https://speakerdeck.com/mercari_inc/mercari-fact-book-jp) | 2019頃〜 | 日英併記・体系的な資料群。半年11万PV |
+| **10X** | 小売DX | [Culture Deck](https://speakerdeck.com/10xinc/zhu-shi-hui-she-10x-culture-deck) | 2019〜CEO自ら更新 | 給与レンジ掲載。通算64万PV |
+| **ミラティブ** | ライブ配信 | 「採用候補者さまへの手紙」（[解説記事](https://www.dodadsj.com/content/190402_mirrativ/)） | 2019年2月 | 手紙形式44ページ。応募4倍 |
+| **サイボウズ** | グループウェア | [開発本部採用ピッチ](https://speakerdeck.com/cybozuinsideout/cybozu-engineer-recruit) | 2019頃〜 | テクニカルライターまで**職種粒度が最細級** |
+| **ゆめみ** | 内製化支援 | [Notion採用資料群](https://notion.yumemi.co.jp/) | 2019〜20頃〜 | **Notionで人事制度を丸ごと公開**（給与自己決定制度・選考プロセス全公開）。動画版あり |
+
+### 5-2. SaaS・スタートアップ主要各社
+
+| 企業 | 事業 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|---|
+| LayerX | 支出管理SaaS・AI | [Company Deck](https://speakerdeck.com/layerx/company-deck)／[羅針盤](https://speakerdeck.com/layerx/compass_202209) | 2021頃〜高頻度更新 | 行動指針「羅針盤」約40枚。事業部別・職種別に分割 |
+| Sansan | 営業DX | [Company Profile](https://speakerdeck.com/sansan33/sansan-company-profile) | 継続更新 | **部門単位の紹介資料を多数展開**する資料群戦略 |
+| カミナシ | 現場DX | [Corporate Profile](https://speakerdeck.com/kaminashi/kaminashi-corporate-profile) | 2021年3月〜 | 「社員全員が採用広報」。年間約120本のnoteと連動 |
+| SmartBank | FinTech | [Recruiting Deck](https://speakerdeck.com/smartbank/smartbank-recruiting-deck) | 2022頃〜 | 選考フロー・カジュアル面談案内までワンストップ |
+| Ubie | 医療AI | [カルチャーガイド](https://note.com/ubie_corporate/n/n981d56862cda)＋[採用サイト](https://recruit.ubie.life/) | 2022年頃版が著名 | **全候補者に事前読了を必須化**。Do's/Don'tsまで言語化。リファラル70%超の組織 |
+| atama plus | EdTech | [3分でわかるatama plus](https://speakerdeck.com/atamaplus/about-atama-plus) | 2019頃〜2026年も更新 | **「3分でわかる」短尺分割**の代表例 |
+| freee | 会計SaaS | [10分でわかるfreee](https://speakerdeck.com/freee/10fen-dewakarufreee-enziniaxiang-kehui-she-shuo-ming-zi-liao) | 2020頃〜 | **読了時間明示型**。新卒版も年次公開 |
+| ラクスル | 印刷・物流PF | [RAKSUL Introduction](https://speakerdeck.com/raksulrecruiting/raksul-introduction) | 継続更新 | **選考ワークサンプル説明資料まで公開**。職種別（エンタープライズセールス等）あり |
+| マネーフォワード | 会計SaaS | [Company Profile](https://speakerdeck.com/mf_recruitment_pr/company-profile) | 継続更新（27卒版あり） | 全60スライドのボリューム型・ミッション強調 |
+| ログラス | 経営管理SaaS | [Whats Loglass](https://speakerdeck.com/loglass2019/whats-loglass)／[Values Book](https://speakerdeck.com/loglass2019/loglass-values-book) | 2021頃〜 | エンジニア版で技術プラクティスまで開示。**資料ポートフォリオが厚い** |
+| 令和トラベル | 旅行（NEWT） | [Company Deck](https://speakerdeck.com/reiwatravel_0405/reiwatravel-company-deck) | 2021創業時〜 | **資金調達デックまでnote公開**する徹底したオープンネス |
+| newmo | ライドシェア | [Join our team](https://speakerdeck.com/newmo/join-our-team) | 2024（創業直後） | 創業9か月の急拡大データを開示。**「創業と同時に公開」時代の象徴** |
+| Asobica | CS SaaS | [Company Deck](https://speakerdeck.com/asobica/company-deck-288ce65d-aea4-428c-84b4-d1701cf98c92) | 2022〜23頃 | 「数字で見るAsobica」のイラスト図解が高評価 |
+| ROXX | HR Tech | [We are hiring](https://speakerdeck.com/roxxrecurit/we-are-hiring) | 2019頃〜 | 写真・デザイン品質の高さで頻繁に引用 |
+| ナイル | マーケ・車サブスク | [Nyle Presentation](https://speakerdeck.com/nyle_inc/nyle-presentation)／[営業・コンサル職版](https://speakerdeck.com/nyle_inc/nyle-dgm-cons-sales) | 2020頃〜 | **セールス職特化版**を持つ |
+| TVer | 動画配信 | [We are hiring](https://speakerdeck.com/techtver/we-are-hiring) | 2022 | 採用広報の立ち上げ過程自体も資料公開 |
+| GMOペパボ | ホスティング等 | [中途向け](https://speakerdeck.com/pepabo_recruit/company-profile-for-career)／[26卒向け](https://speakerdeck.com/pepabo_recruit/pepabo-graduate) | 継続更新 | **中途／新卒／デザイナーのターゲット別分冊** |
+| GMOメディア | メディア | [採用ピッチ（エンジニア）](https://speakerdeck.com/gmo_media/gmomedeia-cai-yong-pitutizi-liao-enzinia) | 2023年9月 | 評価制度・キャリアパス明記。第二新卒にも訴求 |
+| BASE | EC・決済 | [BASE紹介](https://speakerdeck.com/base/base) | 2019頃〜 | **表紙に更新日を明記**する運用の好例 |
+| Chatwork（kubell） | ビジネスチャット | [会社説明資料](https://speakerdeck.com/chatwork_hr/chatwork) | 2019〜20頃 | 定番として制作事例サイトでも参照される |
+| ヌーラボ | コラボSaaS | [Nulab Fun Deck ほか](https://careers.nulab.com/) | 2026年2月公開 | 「1ページでわかるヌーラボ」等の軽量版と採用プロセス透明化を併用 |
+| コドモン | 保育SaaS | [We are hiring](https://speakerdeck.com/codmon20181107/we-are-hiring) | 2018頃〜 | 初期からの「We are hiring」型 |
+| スタメン | エンゲージメントSaaS | [採用サイト内資料](https://recruit.stmn.co.jp/selection/company-info) | ※要確認 | 動画と資料を採用サイトに統合 |
+| トラストバンク | ふるさと納税PF | [採用ピッチ資料](https://speakerdeck.com/trustbank/zhu-shi-hui-she-torasutobanku-cai-yong-pitutizi-liao) | ー | 自治体・地域経済領域 |
+| hokan | 保険代理店SaaS | [Recruiting Deck](https://speakerdeck.com/hokan/hokan-recruiting-deck) | ー | **保険業界文脈を解説する金融近接の希少例** |
+
+---
+
+## 6. 実例カタログ④：物流・食品・農業・医療・広告ほか
+
+| 企業 | 業界 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|---|
+| **ナカノ商会** | 物流（3PL・売上867億円） | [採用ピッチ資料](https://speakerdeck.com/nakanoshokai/zhu-shi-hui-she-nakanoshang-hui-cai-yong-pitutizi-liao) | 2022〜24頃※要確認 | **伝統的物流企業がSpeaker Deck公開する希少例**。海運からの社史と使命を明示 |
+| **オイシックス・ラ・大地** | 食品宅配 | [会社説明資料](https://speakerdeck.com/ordhr/oisixradaichihui-she-shuo-ming-zi-liao-20200803)（[2024年更新版](https://speakerdeck.com/ordhr/oisixradaichi-20231010)あり) | 2020初版→2024更新 | 契約生産者4,000軒・会員34万人など事業数値を前面に。**4年以上の継続更新の好例** |
+| **日本農業** | 農業（りんご輸出等） | [会社説明資料](https://speakerdeck.com/nrtv/zhu-shi-hui-she-ri-ben-nong-ye-hui-she-shuo-ming-zi-liao) | 2022以降※要確認 | 農業経営×輸出の事業説明 |
+| **一番農業** | 農業 | [会社説明資料](https://speakerdeck.com/1stagri/fan-nong-ye-zhu-shi-hui-she-hui-she-shuo-ming-zi-liao-f57b2c16-158d-4bcc-8cfb-8c55c086dcaf) | ー | 農業の高齢化・資本不足という業界課題から説き起こす |
+| **ビビッドガーデン** | 農業EC（食べチョク） | [会社紹介資料](https://speakerdeck.com/vividgarden/bibitudogadenhui-she-shao-jie-zi-liao-cai-yong-zi-liao) | ー | 農業従事者数・平均年齢等の業界データを冒頭提示 |
+| **AGRI SMILE** | アグリテック | [Culture Deck](https://speakerdeck.com/agrismile/zhu-shi-hui-she-agri-smile-culture-deck) | ー | 持続可能な農業を掲げるカルチャーデック |
+| **ホワイトヘルスケア** | 医薬品流通 | [会社説明資料](https://speakerdeck.com/whitehealthcareinc/recruit) | 2026年4月版 | 医療系の数少ない公開例 |
+| 仙台消化器・内視鏡内科クリニック | 医療（宮城） | 船井総研支援の採用ブランディング（[事例](https://www.funaisoken.co.jp/solution/hospital_nurse-recruitment_702_S033)） | ー | **看護師採用倍率20倍**（ピッチ資料単体の効果かは※要確認） |
+| **才流** | BtoBマーケ支援 | [会社概要説明資料](https://speakerdeck.com/sairu_inc/hui-she-gai-yao-shuo-ming-zi-liao-websaitoyong-2-f22e0d98-2eaa-4ea6-8e03-ca355ba3c105) | 随時更新 | 「年商3億円の事業を100個」という目標の明示。メソッド公開文化と一体 |
+| **SMN**（ソニーG） | アドテク | [採用ピッチ資料](https://speakerdeck.com/smnrecruitment/smn-pitch-design231106) | 2023年11月版 | デザイナー向け派生版あり |
+| **セブンデックス** | UXデザイン | [採用資料](https://speakerdeck.com/sevendex/sebundetukusu-cai-yong-zi-liao-5e815a64-d41d-4e3a-ade2-6215f4462ec4) | ー | ー |
+| **シナジーマーケティング** | CRM・マーケ | [全社版](https://speakerdeck.com/synergymarketing/sinazimaketeinguzhu-shi-hui-she-cai-yong-pitutizi-liao)／[デザイナー版](https://speakerdeck.com/synergymarketing/sinazimaketeinguzhu-shi-hui-she-cai-yong-pitutizi-liao-dezainaxiang-ke) | ー | 職種別分冊の好例 |
+| **手島精管** | 製造（精密管） | hypex支援（[事例記事](https://www.emdustrial.net/2024/01/26/hypex-saiyou-kouhou/)） | 2023〜24 | 非IT製造業で**1年30名採用** |
+
+---
+
+## 7. 実例カタログ⑤：官公庁・自治体
+
+| 組織 | 公開場所・URL | 公開年 | 特徴 |
+|---|---|---|---|
+| **京都市** | [職員採用WEB](https://saiyou.city.kyoto.lg.jp/)に事務職・技術職の採用ピッチ資料を掲載 | 2024頃記事化 | **「外資・スタートアップの手法が官公庁まで浸透」の象徴例**（[マイナビ サポネット](https://saponet.mynavi.jp/column/detail/ty_saiyo_t02_recruit-pitch-deck_240619.html)） |
+| **デジタル庁** | [採用ページ](https://www.digital.go.jp/recruitment)＋[note採用情報まとめ](https://digital-gov.note.jp/n/ndce089d5bef0) | 2021発足以降 | 説明会の動画・資料をアーカイブ公開。中央省庁の先行例 |
+
+---
+
+## 8. 公開例が見つからなかった業界（空白地帯）
+
+調査した範囲で「スライド型の公開ピッチ資料」が特定できなかった業界（＝参入すれば目立てる領域でもある）：
+
+- **士業**（税理士法人・会計事務所・社労士・法律事務所）：求人媒体依存が主流
+- **金融機関本体**（銀行・証券・保険会社）：独自採用サイト型。近接例はインシュアテックのhokanのみ
+- **店舗型小売・飲食チェーン**：Notion／Google Sites型採用ページが主流（CRISP、スープストックトーキョー等）
+- **運送会社本体**（トラック・タクシー）：三和交通も特設サイト型でピッチ資料形式は未確認
+- **戸建・投資用不動産の販売会社**：TERASS（仲介エージェント）以外はほぼ空白 → **当社のチャンス**
+
+---
+
+## 9. 優れた資料の共通要素と標準構成
+
+### 9-1. 標準的な章立て（複数分析記事の共通項）
+
+1. 表紙（**更新日明記**が推奨：BASE式）
+2. ミッション・ビジョン・代表メッセージ
+3. 会社概要・沿革・拠点
+4. 事業内容・ビジネスモデル・実績（導入事例・顧客の声）
+5. **市場環境・競合優位性**（10X・estie・キャディが得意とする「市場から語る」型）
+6. 組織：社員数・年齢構成・職種構成・入社者のバックグラウンド（「数字で見る◯◯」）
+7. カルチャー・バリュー（行動レベルまで言語化：LayerX羅針盤、UbieのDo's/Don'ts）
+8. 働く環境・制度・福利厚生・評価制度・**給与**（テーブル/レンジ/実例）
+9. **現在の課題（ネガティブ情報の正直な開示）** ← セルフスクリーニング機能の核
+10. 求める人物像（「合う人・合わない人」の明示）
+11. 募集職種・**選考フロー**・カジュアル面談案内・Q&A
+
+参考：[Cone「スライド項目25種」](https://cone-c-slide.com/see-sla/blog/recruitment-pitch/)、[circus「52項目全網羅」](https://note.com/circus_note/n/nec24c4844939)、[マイナビ サポネット](https://saponet.mynavi.jp/column/detail/ty_saiyo_t02_recruit-pitch-deck_240619.html)
+
+### 9-2. 優れた資料の共通要素
+
+- **分量30〜50枚・「1スライド1メッセージ」**（BRIDGE分析では優良資料は約40ページ）
+- **給与・評価の開示**（SmartHR・10X・キャディ・ゆめみ）が返信率・応募率向上に直結
+- **ネガ開示**：課題・大変さを正直に書く（SmartHR型）。誇張は入社後ギャップ→早期離職を招くだけ
+- **データで語る**：「数字で見る◯◯」（男女比・平均年齢・中途比率・残業・有休）はほぼ全社標準
+- **エビデンス型の工夫**：Slackの実データで社風を証明（LAPRAS）、顧客レビュー掲載（令和トラベル）
+- **ストーリー性**：業界課題→事業戦略→あなたの役割、の流れ（カミナシ）
+- **同一URLで更新**（Speaker Deckの標準機能）＋2〜3か月ごとの更新（SmartHR運用）
+
+---
+
+## 10. 直近トレンド（2024〜2026）
+
+1. **Notion化・エントランスブック**: スライドでなくNotionサイトに採用情報を集約（ゆめみが先行、[Notion採用サイト50選](https://note.com/konkon4192/n/n8986aadb9656)が成立する規模に）。2024年6月のNotion公式Web公開機能で加速
+2. **職種別・事業部別の分割**: 全社版1本→「営業職版」「エンジニア版」「新卒版」への分冊が標準に（CDC・GMOペパボ・ナイル・Sansan・ログラス）
+3. **給与テーブル・等級の公開**: 透明性競争が進行（キャディ・10X・SmartHR・ゆめみ）
+4. **動画化・「採用ピッチ動画」**: 3〜5分の会社紹介動画から、候補者フェーズ別の分割設計・ショート動画へ（[トレンド解説](https://atom-story.com/media/recruitment-video-trends-and-success-stories)）。※当社のTikTok/YouTube運用（21期計画§6）と直結
+5. **カルチャーデック回帰**: 採用専用でなく汎用の「Company Deck」として投資家・顧客・候補者に共用（LayerX・ログラス・令和トラベル）
+6. **創業と同時に公開**: newmo（2024年創業）のように設立直後からの公開が新常識に
+
+---
+
+## 11. 大型まとめ記事・リンク集
+
+| まとめ | 規模 | URL |
+|---|---|---|
+| HeaR「採用ピッチ資料事例120選」（毎年更新） | 120社 | https://www.hear.co.jp/recruit/saiyoupitch-100sen （[全リストNotion](https://dune-actor-6cd.notion.site/120-34b95937daa14a0f81eaf24e09049d5f)） |
+| hypex「カルチャーデック150選」（業種別） | 150社 | https://hypex.jp/articles/recruitment-pitch-materials-example |
+| まるごと人事「採用ピッチ資料149選」 | 149社 | https://marugotoinc.jp/blog/saiyo-pitch-case/ |
+| コンさんnote「採用ピッチ資料100選＋作り方7つ」（2025年10月更新） | 約100社 | https://note.com/konkon4192/n/nc04b0ed3a10f |
+| TECH HIRE MEDIA「採用ピッチ資料100選」 | 100社 | https://techhire.trackrecords.co.jp/media/recuruiting-pitch-materials |
+| すごい人事「現役人事が分析！すごい採用ピッチ資料39選」 | 39社（評価コメント付き） | https://sugoi-jinji.com/column/ |
+| Nu Realize「厳選30社【2026年版】」 | 30社 | https://nurealize.com/kaisyasetumeisiryou2026/ |
+| かけはしスカイソリューションズ「事例25選」 | 25社 | https://www.kakehashi-skysol.co.jp/career-chiebukuro/careerdoc/ |
+| Cone「デザインスタイル別 事例22選」 | 22社 | https://cone-c-slide.com/see-sla/blog/recruitpitch-case/ |
+| オールイン「事例20選【2026年最新版】」 | 20社 | https://allhero.co.jp/blog/recruit-pitch-deck20/ |
+| 日本の会社紹介スライドまとめ（有志運営） | 網羅型DB | https://company-introduction-jp.vercel.app/ |
+| 採用ピッチ資料カオスマップ（2020） | 100社 | https://digital-shift.jp/flash_news/FN201223_1 |
+
+---
+
+## 12. 当社（東京ビッグハウス）版ピッチ資料への示唆
+
+21期計画フェーズ1施策「採用ピッチ資料v1」（2026年8月完成予定）の制作にあたり、本実例集から採るべき型：
+
+**直接ベンチマークすべき5本**
+
+1. **キャリアデザインセンター「新卒採用ピッチ／営業職」** — 営業職特化×卒年別の構成をそのまま参考に
+2. **SmartHR** — 給与・昇給実績・課題開示のレベル感（「20代で1,000万」を疑われないための証拠の見せ方）
+3. **TERASS** — 不動産営業（エージェント）向け資料の業界内先行例
+4. **キャディ「CTOからの手紙」** — 当社版は「社長からの手紙」（菊田社長のYouTubeと連動）
+5. **atama plus「3分でわかる」** — TikTok世代向けの短尺サマリー版を本編と別に作る発想
+
+**当社版の推奨仕様**（§9の標準構成＋当社の強み）
+
+- 分量：本編40枚前後＋「3分でわかるTOKYO BIG HOUSE」10枚版の2本立て
+- 必須スライド：年次別給与実例（平均とトップを明示区分）／未経験90%の立ち上がりデータ（初契約までの平均日数）／「数字で見るTBH」（平均年齢27歳・働きがいランキング7年連続等）／**現在の課題の正直な開示**／選考フロー「応募当日連絡・最短1週間内定」／社長からの手紙
+- 公開場所：Speaker Deck（同一URL更新）＋既存Notion採用ページに埋め込み。スカウト文・エージェント・面接案内メールに添付必須（有効応募率2倍の使い方）
+- 更新：四半期ごと（21期計画§5のとおり8月v1→4月v2）
+- 法令注意：性別表現NG・給与誇張NG（調査本編§2のチェックリスト適用）
+
+**市場ポジション上の結論**: 採用ピッチ資料はIT業界では飽和しつつあるが、**戸建・投資用不動産の販売営業では依然としてほぼ空白**。「営業職特化・給与実例まで開示する不動産会社のピッチ資料」は現時点で希少であり、先行者利益が取れる。
+
+---
+
+*本実例集はWeb公開情報に基づく（2026年7月調査）。資料URL・内容は各社が随時更新するため、制作着手時に最新版を再確認のこと。*
