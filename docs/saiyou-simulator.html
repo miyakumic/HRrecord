@@ -1,0 +1,451 @@
+<style>
+  :root {
+    --ground:#F4F6FA; --surface:#FFFFFF; --surface-2:#EDEFF6; --surface-3:#E4E7F1;
+    --ink:#181B22; --ink-2:#565E70; --ink-3:#828A9C; --line:#E0E3ED;
+    --accent:#3B4CC0; --accent-soft:#EAECFA;
+    --miss:#C23A2C; --miss-soft:#F7E6E3;
+    --warn:#B47513; --warn-soft:#F6ECD9;
+    --good:#1B8557; --good-soft:#E0F0E7;
+    --shadow:0 1px 2px rgba(24,27,34,.05), 0 6px 20px rgba(24,27,34,.06);
+    --font-sans: system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,"Noto Sans JP",Meiryo,sans-serif;
+    --font-num: "SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#0E1116; --surface:#161A21; --surface-2:#1E232D; --surface-3:#262C38;
+      --ink:#E7EAF1; --ink-2:#9AA3B4; --ink-3:#6C7486; --line:#29303C;
+      --accent:#8290EE; --accent-soft:#20263A;
+      --miss:#E27163; --miss-soft:#2E1E1C;
+      --warn:#DBA544; --warn-soft:#2C2416;
+      --good:#46B584; --good-soft:#16281F;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#F4F6FA; --surface:#FFFFFF; --surface-2:#EDEFF6; --surface-3:#E4E7F1;
+    --ink:#181B22; --ink-2:#565E70; --ink-3:#828A9C; --line:#E0E3ED;
+    --accent:#3B4CC0; --accent-soft:#EAECFA;
+    --miss:#C23A2C; --miss-soft:#F7E6E3; --warn:#B47513; --warn-soft:#F6ECD9;
+    --good:#1B8557; --good-soft:#E0F0E7;
+    --shadow:0 1px 2px rgba(24,27,34,.05), 0 6px 20px rgba(24,27,34,.06);
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E1116; --surface:#161A21; --surface-2:#1E232D; --surface-3:#262C38;
+    --ink:#E7EAF1; --ink-2:#9AA3B4; --ink-3:#6C7486; --line:#29303C;
+    --accent:#8290EE; --accent-soft:#20263A;
+    --miss:#E27163; --miss-soft:#2E1E1C; --warn:#DBA544; --warn-soft:#2C2416;
+    --good:#46B584; --good-soft:#16281F;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1;}
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 20px 64px}
+
+  header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:8px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(22px,3.4vw,30px);margin:6px 0 4px;letter-spacing:-.01em;text-wrap:balance;font-weight:800}
+  .sub{color:var(--ink-2);font-size:14px;max-width:60ch}
+  .themebtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+    border-radius:9px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit}
+  .themebtn:hover{background:var(--surface-2)}
+
+  .readout{background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin:20px 0 26px;font-size:14.5px;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
+  .readout b{font-weight:700}
+  .readout .dot{color:var(--accent);font-weight:800;flex:none}
+
+  /* hero chart */
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+  .chartcard{padding:22px 24px 26px;margin-bottom:26px}
+  .card-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px}
+  .card-h h2{font-size:15px;margin:0;font-weight:700}
+  .card-h .note{font-size:12.5px;color:var(--ink-3)}
+
+  .chart{position:relative;padding-top:6px}
+  .target-line{position:absolute;top:0;bottom:26px;width:0;border-left:2px dashed var(--accent);z-index:3;transition:left .4s ease}
+  .target-flag{position:absolute;top:-4px;transform:translateX(-50%);background:var(--accent);color:#fff;
+    font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;z-index:4;transition:left .4s ease}
+  .target-flag::after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);
+    border:4px solid transparent;border-top-color:var(--accent);border-bottom:0}
+
+  .bar-row{display:grid;grid-template-columns:104px 1fr;align-items:center;gap:14px;margin-bottom:14px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-label{font-size:13px;font-weight:600;text-align:right;color:var(--ink-2);line-height:1.25}
+  .bar-label small{display:block;font-size:11px;color:var(--ink-3);font-weight:500}
+  .bar-track{position:relative;height:38px;background:var(--surface-2);border-radius:8px;overflow:visible}
+  .bar-fill{height:100%;border-radius:8px;transition:width .45s cubic-bezier(.22,.61,.36,1),background .3s;
+    display:flex;align-items:center;justify-content:flex-end;min-width:44px;position:relative;z-index:2}
+  .bar-fill .val{color:#fff;font-family:var(--font-num);font-weight:700;font-size:15px;padding-right:10px;
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .bar-scale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);
+    font-family:var(--font-num);margin-top:2px;padding-top:6px}
+  .fill-miss{background:var(--miss)} .fill-warn{background:var(--warn)} .fill-good{background:var(--good)}
+
+  /* result cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+  .rcard{padding:18px 18px 16px;border-top:3px solid var(--line);position:relative}
+  .rcard.m{border-top-color:var(--miss)} .rcard.w{border-top-color:var(--warn)} .rcard.g{border-top-color:var(--good)}
+  .rcard .tag{font-size:12px;font-weight:700;letter-spacing:.02em;margin-bottom:2px}
+  .rcard.m .tag{color:var(--miss)} .rcard.w .tag{color:var(--warn)} .rcard.g .tag{color:var(--good)}
+  .rcard .desc{font-size:12px;color:var(--ink-3);margin-bottom:14px;min-height:2.4em}
+  .big{font-family:var(--font-num);font-size:34px;font-weight:800;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;line-height:1}
+  .big .u{font-size:15px;font-weight:600;color:var(--ink-2);margin-left:3px}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;
+    padding:3px 9px;border-radius:20px;margin-top:10px}
+  .pill.m{background:var(--miss-soft);color:var(--miss)}
+  .pill.w{background:var(--warn-soft);color:var(--warn)}
+  .pill.g{background:var(--good-soft);color:var(--good)}
+  .rows{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:7px}
+  .kv{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;gap:8px}
+  .kv .k{color:var(--ink-2)}
+  .kv .v{font-family:var(--font-num);font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+  .kv .v.hot{color:var(--miss)} .kv .v.cool{color:var(--good)}
+
+  /* budget bar */
+  .budget{padding:16px 20px;margin-bottom:28px;display:flex;flex-direction:column;gap:8px}
+  .budget-h{display:flex;justify-content:space-between;font-size:13px}
+  .budget-h .l{color:var(--ink-2);font-weight:600}
+  .budget-h .r{font-family:var(--font-num);font-weight:700;font-variant-numeric:tabular-nums}
+  .budget-track{height:12px;background:var(--surface-2);border-radius:7px;overflow:hidden;position:relative}
+  .budget-fill{height:100%;border-radius:7px;transition:width .45s ease,background .3s}
+  .budget-cap{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.5}
+
+  /* controls */
+  h3.sec{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
+    margin:0 0 2px;font-weight:700}
+  .controls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+  .cgroup{padding:16px 18px 18px}
+  .cgroup .gh{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .cgroup .gh .badge{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+    font-size:12px;font-weight:800;color:#fff}
+  .gh.gc .badge{background:var(--accent)} .gh.ga .badge{background:var(--miss)} .gh.gb .badge{background:var(--good)}
+  .cgroup .gh .t{font-size:13.5px;font-weight:700}
+  .ctrl{display:block;margin-bottom:15px}
+  .ctrl:last-child{margin-bottom:0}
+  .ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+  .ctrl-name{font-size:12.5px;color:var(--ink-2);font-weight:500}
+  .ctrl-val{font-family:var(--font-num);font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:4px;
+    background:var(--surface-3);outline:none;cursor:pointer;margin:6px 0 2px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;
+    background:var(--accent);border:2px solid var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.25);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--accent);
+    border:2px solid var(--surface);cursor:pointer}
+  input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .ga input[type=range]::-webkit-slider-thumb{background:var(--miss)}
+  .ga input[type=range]::-moz-range-thumb{background:var(--miss)}
+  .gb input[type=range]::-webkit-slider-thumb{background:var(--good)}
+  .gb input[type=range]::-moz-range-thumb{background:var(--good)}
+
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 0 14px;flex-wrap:wrap}
+  .toolbar h3{margin:0}
+  .resetbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:9px;
+    padding:8px 14px;font-size:12.5px;cursor:pointer;font-family:inherit;font-weight:600}
+  .resetbtn:hover{background:var(--surface-2);color:var(--ink)}
+
+  footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:11.5px;line-height:1.7}
+  footer b{color:var(--ink-2)}
+  .ga2{color:var(--miss);font-weight:700}.gb2{color:var(--good);font-weight:700}
+
+  @media (max-width:820px){
+    .cards{grid-template-columns:1fr}
+    .controls{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:88px 1fr}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">採用シナリオ・シミュレーター</div>
+      <h1>2027年10月1日・純在籍55名の着地予想</h1>
+      <p class="sub">現状25名から純増+30を約13か月で。前提スライダーを動かすと、3案の着地・コスト・予算がその場で再計算されます。</p>
+    </div>
+    <button class="themebtn" id="themeBtn" type="button">◐ テーマ切替</button>
+  </header>
+
+  <div class="readout"><span class="dot">▶</span><span id="takeaway"></span></div>
+
+  <!-- HERO CHART -->
+  <div class="panel chartcard">
+    <div class="card-h">
+      <h2>着地人数（2027/10/1・純在籍）</h2>
+      <span class="note">破線＝目標ライン</span>
+    </div>
+    <div class="chart" id="chart">
+      <div class="target-line" id="tline"></div>
+      <div class="target-flag" id="tflag">目標 55</div>
+
+      <div class="bar-row">
+        <div class="bar-label">A案<small>現行踏襲</small></div>
+        <div class="bar-track"><div class="bar-fill fill-miss" id="barA"><span class="val" id="barAv"></span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">A′案<small>現行のまま55名</small></div>
+        <div class="bar-track"><div class="bar-fill fill-warn" id="barAp"><span class="val" id="barApv"></span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">B案<small>抜本改革</small></div>
+        <div class="bar-track"><div class="bar-fill fill-good" id="barB"><span class="val" id="barBv"></span></div></div>
+      </div>
+      <div class="bar-scale" id="scale"></div>
+    </div>
+  </div>
+
+  <!-- RESULT CARDS -->
+  <div class="cards">
+    <div class="panel rcard m">
+      <div class="tag">A案 ／ 現行踏襲</div>
+      <div class="desc">計画通り17名採用。堅実だが目標を想定していない。</div>
+      <div class="big"><span id="landA"></span><span class="u">名</span></div>
+      <span class="pill m" id="pillA"></span>
+      <div class="rows">
+        <div class="kv"><span class="k">名目コスト</span><span class="v" id="costA"></span></div>
+        <div class="kv"><span class="k">真の総負担<small></small></span><span class="v" id="trueA"></span></div>
+        <div class="kv"><span class="k">純増1名あたり</span><span class="v" id="cpnA"></span></div>
+        <div class="kv"><span class="k">現場早期離職の実損</span><span class="v hot" id="hidA"></span></div>
+      </div>
+    </div>
+
+    <div class="panel rcard w">
+      <div class="tag">A′案 ／ 現行モデルで55名</div>
+      <div class="desc">数だけ増やす。届くが失敗が現場で起き、真の負担が膨らむ。</div>
+      <div class="big"><span id="landAp"></span><span class="u">名</span></div>
+      <span class="pill w" id="pillAp"></span>
+      <div class="rows">
+        <div class="kv"><span class="k">必要グロス採用</span><span class="v" id="grossAp"></span></div>
+        <div class="kv"><span class="k">名目コスト</span><span class="v" id="costAp"></span></div>
+        <div class="kv"><span class="k">真の総負担</span><span class="v hot" id="trueAp"></span></div>
+        <div class="kv"><span class="k">現場早期離職の実損</span><span class="v hot" id="hidAp"></span></div>
+      </div>
+    </div>
+
+    <div class="panel rcard g">
+      <div class="tag">B案 ／ 抜本改革</div>
+      <div class="desc">2か月プール＋60%返金＋幹部分離。失敗をプールに閉じ込める。</div>
+      <div class="big"><span id="landB"></span><span class="u">名</span></div>
+      <span class="pill g" id="pillB"></span>
+      <div class="rows">
+        <div class="kv"><span class="k">総コスト</span><span class="v" id="costB"></span></div>
+        <div class="kv"><span class="k">純増1名あたり</span><span class="v cool" id="cpnB"></span></div>
+        <div class="kv"><span class="k">プール失敗の原価</span><span class="v" id="washB"></span></div>
+        <div class="kv"><span class="k">現場配属／幹部</span><span class="v" id="deployB"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="panel budget">
+    <div class="budget-h">
+      <span class="l">B案 総コスト vs 予算上限 7,500万円</span>
+      <span class="r" id="budgetTxt"></span>
+    </div>
+    <div class="budget-track"><div class="budget-fill" id="budgetFill"></div><div class="budget-cap" id="budgetCap"></div></div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="toolbar">
+    <h3 class="sec">前提を動かす</h3>
+    <button class="resetbtn" id="resetBtn" type="button">↺ 既定値に戻す</button>
+  </div>
+  <div class="controls">
+    <div class="panel cgroup">
+      <div class="gh gc"><span class="badge">共</span><span class="t">共通前提</span></div>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">期首在籍</span><span class="ctrl-val" id="start_v"></span></div>
+        <input type="range" id="start" min="15" max="40" step="1" value="25"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">目標純在籍</span><span class="ctrl-val" id="target_v"></span></div>
+        <input type="range" id="target" min="40" max="80" step="1" value="55"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">現場早期離職1名の実損</span><span class="ctrl-val" id="loss_v"></span></div>
+        <input type="range" id="loss" min="300" max="900" step="20" value="640"></label>
+    </div>
+
+    <div class="panel cgroup ga">
+      <div class="gh ga"><span class="badge">A</span><span class="t">現行モデル（A・A′）</span></div>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">年間採用（A案）</span><span class="ctrl-val" id="hiresA_v"></span></div>
+        <input type="range" id="hiresA" min="8" max="30" step="1" value="17"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">離職率</span><span class="ctrl-val" id="churnA_v"></span></div>
+        <input type="range" id="churnA" min="8" max="35" step="1" value="21"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">採用単価</span><span class="ctrl-val" id="feeA_v"></span></div>
+        <input type="range" id="feeA" min="40" max="200" step="2" value="78"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">早期離職の割合（実損対象）</span><span class="ctrl-val" id="early_v"></span></div>
+        <input type="range" id="early" min="20" max="80" step="5" value="50"></label>
+    </div>
+
+    <div class="panel cgroup gb">
+      <div class="gh gb"><span class="badge">B</span><span class="t">抜本改革（B）</span></div>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">プール投入（グロス）</span><span class="ctrl-val" id="pool_v"></span></div>
+        <input type="range" id="pool" min="20" max="80" step="1" value="48"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">プール離脱率（2か月で仕分け）</span><span class="ctrl-val" id="wash_v"></span></div>
+        <input type="range" id="wash" min="10" max="50" step="1" value="30"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">配属後・現場離職率</span><span class="ctrl-val" id="post_v"></span></div>
+        <input type="range" id="post" min="3" max="25" step="1" value="9"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">返金率</span><span class="ctrl-val" id="refund_v"></span></div>
+        <input type="range" id="refund" min="0" max="100" step="5" value="60"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">幹部採用数（別財布）</span><span class="ctrl-val" id="exec_v"></span></div>
+        <input type="range" id="exec" min="0" max="8" step="1" value="3"></label>
+    </div>
+  </div>
+
+  <footer>
+    <b>前提（固定分）</b>：既存離職率15%／Bゲート単価85万円／プール固定費1,500万円／プール失敗の原価120万円/名／幹部単価250万円／体制・定着・SNS費 A=2,880万・B=1,800万円。<br>
+    <b>計算の考え方</b>：A案着地＝期首＋採用−離職（離職＝離職率×平均在籍）。A′案＝目標到達に必要なグロス採用を離職込みで逆算。真の総負担＝名目コスト＋<span class="ga2">現場早期離職の実損</span>（予算外流出）。B案着地＝期首−既存離職＋配属−配属後離職＋幹部、失敗は<span class="gb2">プール内</span>で処理。<br>
+    これは<b>予測ではなく前提を置いた試算モデル</b>です。プール離脱率・配属後離職率は過去の未経験入社の実データで上書きすると精度が上がります。出所：<b>21ki-sales-hiring-plan.md</b>（計画v2.0）／<b>sales-mass-hiring-research.md</b>（早期離職1名=640万の試算ほか）。
+  </footer>
+</div>
+
+<script>
+(function(){
+  var DEFAULTS={start:25,target:55,loss:640,hiresA:17,churnA:21,feeA:78,early:50,
+                pool:48,wash:30,post:9,refund:60,exec:3};
+  var FIX={existChurn:0.15,gateFee:85,poolFixed:1500,washLoss:120,execFee:250,ohA:2880,ohB:1800,ceiling:7500};
+  var ids=Object.keys(DEFAULTS);
+  function g(id){return document.getElementById(id);}
+  function val(id){return parseFloat(g(id).value);}
+
+  function man(v){return Math.round(v).toLocaleString('en-US')+'万';}
+  function oku(v){return (v/10000).toFixed(2)+'億';}
+  function rnd(v){return Math.round(v);}
+
+  function compute(){
+    var start=val('start'),target=val('target'),loss=val('loss');
+    var hiresA=val('hiresA'),cA=val('churnA')/100,feeA=val('feeA'),early=val('early')/100;
+    var pool=val('pool'),wash=val('wash')/100,post=val('post')/100,refund=val('refund')/100,exec=val('exec');
+
+    var net=target-start;
+
+    // A案
+    var avgA=start+hiresA/2;
+    var churnA=cA*avgA;
+    var landA=start+hiresA-churnA;
+    var costA=hiresA*feeA+FIX.ohA;
+    var hidA=churnA*early*loss;
+    var trueA=costA+hidA;
+    var cpnA=(landA-start)>0?costA/(landA-start):NaN;
+
+    // A′案 逆算グロス
+    var denom=(1-cA/2);
+    var H=denom>0?(net+cA*start)/denom:NaN;
+    if(!(H>0))H=0;
+    var churnAp=cA*(start+H/2);
+    var costAp=H*feeA+FIX.ohA;
+    var hidAp=churnAp*early*loss;
+    var trueAp=costAp+hidAp;
+
+    // B案
+    var washouts=pool*wash;
+    var deployed=pool-washouts;
+    var postCh=post*deployed;
+    var existCh=FIX.existChurn*start;
+    var landB=start-existCh+deployed-postCh+exec;
+    var gate=pool*FIX.gateFee-washouts*(refund*FIX.gateFee);
+    var costB=gate+FIX.poolFixed+FIX.ohB+exec*FIX.execFee;
+    var washTot=washouts*FIX.washLoss;
+    var cpnB=(landB-start)>0?costB/(landB-start):NaN;
+
+    return {start,target,loss,net,
+      landA,costA,hidA,trueA,cpnA,
+      H,landAp:target,costAp,hidAp,trueAp,
+      landB,costB,washTot,cpnB,deployed,exec,
+      scaleMax:Math.max(70,Math.ceil(Math.max(landA,target,landB,55)/10)*10)};
+  }
+
+  function pct(v,max){return Math.max(0,Math.min(100,v/max*100));}
+
+  function render(){
+    var r=compute();
+    // readouts
+    g('start_v').textContent=val('start')+'名';
+    g('target_v').textContent=val('target')+'名';
+    g('loss_v').textContent=man(val('loss'))+'円';
+    g('hiresA_v').textContent=val('hiresA')+'名';
+    g('churnA_v').textContent=val('churnA')+'%';
+    g('feeA_v').textContent=val('feeA')+'万円';
+    g('early_v').textContent=val('early')+'%';
+    g('pool_v').textContent=val('pool')+'名';
+    g('wash_v').textContent=val('wash')+'%';
+    g('post_v').textContent=val('post')+'%';
+    g('refund_v').textContent=val('refund')+'%';
+    g('exec_v').textContent=val('exec')+'名';
+
+    var max=r.scaleMax;
+    // target line position
+    var tp=r.target/max*100;
+    g('tline').style.left=tp+'%';
+    g('tflag').style.left=tp+'%';
+    g('tflag').textContent='目標 '+rnd(r.target);
+    // scale ticks
+    var ticks='';for(var i=0;i<=max;i+=10){ticks+='<span>'+i+'</span>';}
+    g('scale').innerHTML=ticks;
+
+    // bars
+    g('barA').style.width=pct(r.landA,max)+'%'; g('barAv').textContent=rnd(r.landA);
+    g('barAp').style.width=pct(r.landAp,max)+'%'; g('barApv').textContent=rnd(r.landAp);
+    g('barB').style.width=pct(r.landB,max)+'%'; g('barBv').textContent=rnd(r.landB);
+
+    // cards A
+    g('landA').textContent=rnd(r.landA);
+    g('costA').textContent=man(r.costA)+'円';
+    g('trueA').textContent=man(r.trueA)+'円';
+    g('cpnA').textContent=isNaN(r.cpnA)?'—':man(r.cpnA)+'円';
+    g('hidA').textContent='▲'+man(r.hidA)+'円';
+    var gapA=r.landA-r.target;
+    setPill('pillA','m',gapA>=-0.5?'目標到達':'▲'+rnd(Math.abs(gapA))+'名 未達');
+
+    // cards A'
+    g('landAp').textContent=rnd(r.landAp);
+    g('grossAp').textContent=rnd(r.H)+'名';
+    g('costAp').textContent=man(r.costAp)+'円';
+    g('trueAp').textContent=man(r.trueAp)+'円 ('+oku(r.trueAp)+')';
+    g('hidAp').textContent='▲'+man(r.hidAp)+'円';
+    setPill('pillAp','w','到達するが真の負担 '+oku(r.trueAp)+'円');
+
+    // cards B
+    g('landB').textContent=rnd(r.landB);
+    g('costB').textContent=man(r.costB)+'円';
+    g('cpnB').textContent=isNaN(r.cpnB)?'—':man(r.cpnB)+'円';
+    g('washB').textContent='▲'+man(r.washTot)+'円';
+    g('deployB').textContent=rnd(r.deployed)+' / '+rnd(r.exec)+'名';
+    var gapB=r.landB-r.target;
+    setPill('pillB','g',gapB>=-0.5?'目標到達 (+'+rnd(gapB)+')':'▲'+rnd(Math.abs(gapB))+'名 未達');
+
+    // budget
+    var bp=pct(r.costB,10000); // scale to 1億 for the track
+    var capP=FIX.ceiling/10000*100;
+    var fill=g('budgetFill');
+    fill.style.width=Math.min(100,r.costB/10000*100)+'%';
+    var over=r.costB>FIX.ceiling;
+    fill.style.background=over?'var(--miss)':'var(--good)';
+    g('budgetCap').style.left=capP+'%';
+    g('budgetTxt').textContent=man(r.costB)+'円 ('+(over?'超過 +'+man(r.costB-FIX.ceiling):'残 '+man(FIX.ceiling-r.costB))+'円)';
+    g('budgetTxt').style.color=over?'var(--miss)':'var(--good)';
+
+    // takeaway
+    var tv='現行踏襲は<b>'+rnd(r.landA)+'名</b>で目標に'+(gapA>=-0.5?'到達':'<b>▲'+rnd(Math.abs(gapA))+'名</b>')+'。'+
+      '同じモデルで55名を狙うと真の負担<b>'+oku(r.trueAp)+'円</b>。'+
+      'B案は純増1名<b>'+man(r.cpnB)+'円</b>で<b>'+rnd(r.landB)+'名</b>に'+(gapB>=-0.5?'到達':'届かず')+
+      '（'+(over?'<span class="ga2">予算超過</span>':'<span class="gb2">予算内</span>')+'）。';
+    g('takeaway').innerHTML=tv;
+  }
+  function setPill(id,cls,txt){var e=g(id);e.className='pill '+cls;e.textContent=txt;}
+
+  ids.forEach(function(id){g(id).addEventListener('input',render);});
+  g('resetBtn').addEventListener('click',function(){
+    ids.forEach(function(id){g(id).value=DEFAULTS[id];});render();
+  });
+
+  // theme toggle
+  var tb=g('themeBtn');
+  tb.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var next=cur==='dark'?'light':(cur==='light'?'dark':
+      (window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));
+    document.documentElement.setAttribute('data-theme',next);
+  });
+
+  render();
+})();
+</script>
