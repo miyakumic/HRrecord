@@ -124,7 +124,7 @@
     <div>
       <div class="eyebrow">採用ファネル・シミュレーター</div>
       <h1>いまの応募の移行率で、何人採れて・いくらかかるか</h1>
-      <p class="sub">計画書§7-2の実測移行率（応募→面談60%→内定25%→承諾77%→定着90%）が初期値。応募数・各段階の移行率・お金の前提を動かすと、採用数と単価のバランスが即更新されます。</p>
+      <p class="sub">実際のファネル実績（応募→1次面接 21%→内定 14%→承諾 62%、応募660）が初期値。総移行率は計画想定11.6%に対し実測 約1.8%。応募数・各段階の移行率・お金の前提を動かすと、採用数と単価のバランスが即更新されます。</p>
     </div>
     <button class="themebtn" id="themeBtn" type="button">◐ テーマ切替</button>
   </header>
@@ -174,13 +174,13 @@
     <div class="panel cgroup">
       <div class="gh"><span class="badge">応</span><span class="t">応募と移行率</span></div>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">有効応募数（年間）</span><span class="ctrl-val" id="oubo_v"></span></div>
-        <input type="range" id="oubo" min="50" max="600" step="1" value="147"></label>
-      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">応募 → 面談</span><span class="ctrl-val" id="r1_v"></span></div>
-        <input type="range" id="r1" min="30" max="90" step="1" value="60"></label>
-      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">面談 → 内定</span><span class="ctrl-val" id="r2_v"></span></div>
-        <input type="range" id="r2" min="5" max="60" step="1" value="25"></label>
+        <input type="range" id="oubo" min="100" max="3000" step="10" value="660"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">応募 → 1次面接</span><span class="ctrl-val" id="r1_v"></span></div>
+        <input type="range" id="r1" min="5" max="90" step="1" value="21"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">1次面接 → 内定</span><span class="ctrl-val" id="r2_v"></span></div>
+        <input type="range" id="r2" min="5" max="60" step="1" value="14"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">内定 → 承諾（採用）</span><span class="ctrl-val" id="r3_v"></span></div>
-        <input type="range" id="r3" min="40" max="100" step="1" value="77"></label>
+        <input type="range" id="r3" min="40" max="100" step="1" value="62"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">初年度定着率</span><span class="ctrl-val" id="r4_v"></span></div>
         <input type="range" id="r4" min="60" max="100" step="1" value="90"></label>
     </div>
@@ -207,14 +207,14 @@
 
   <footer>
     <b>計算の考え方</b>：採用数＝応募×(応募→面談)×(面談→内定)×(内定→承諾)。定着数＝採用×初年度定着率。直接費＝媒体固定費＋成功報酬×採用数。採用単価＝直接費÷採用数（応募を増やすほど媒体固定費が分散し、単価は成功報酬に漸近）。定着単価＝直接費÷定着数。必要応募数＝目標÷総移行率。<br>
-    <b>初期値の出所</b>：<b>21ki-sales-hiring-plan.md</b> §7-2 ファネルKPI（応募147→面談88→内定22→採用17、定着率90%）、§3 チャネル別単価（平均78万）、§4 定着投資880万。<br>
+    <b>初期値</b>：実際のファネル実績（応募660／応募→1次面接21%／1次面接→内定14%／内定→承諾62%＝総移行率1.8%）。参考として計画書§7-2の想定は応募→面談60%→内定25%→承諾77%（総移行率11.6%）で、この差が最大の論点。単価・定着投資は§3・§4（平均78万・880万）。<br>
     これは<b>前提を置いた試算</b>です。移行率は実際の月次実績で上書きすると精度が上がります。
   </footer>
 </div>
 
 <script>
 (function(){
-  var DEF={oubo:147,r1:60,r2:25,r3:77,r4:90,baitai:500,fee:50,teichaku:880,goal:17};
+  var DEF={oubo:660,r1:21,r2:14,r3:62,r4:90,baitai:500,fee:50,teichaku:880,goal:17};
   var ids=Object.keys(DEF);
   function g(id){return document.getElementById(id)}
   function v(id){return parseFloat(g(id).value)}
@@ -222,7 +222,7 @@
   function r1d(x){return Math.round(x)}
 
   var STAGES=[
-    {nm:'有効応募',cls:'s1'},{nm:'面談',cls:'s2'},{nm:'内定',cls:'s3'},{nm:'承諾（採用）',cls:'s4'},{nm:'定着',cls:'s5'}
+    {nm:'有効応募',cls:'s1'},{nm:'1次面接',cls:'s2'},{nm:'内定',cls:'s3'},{nm:'承諾（採用）',cls:'s4'},{nm:'定着',cls:'s5'}
   ];
 
   function calc(){
@@ -253,7 +253,7 @@
     g('goal_v').textContent=r1d(v('goal'))+'名';
 
     // funnel
-    var rateLabels=['応募→面談','面談→内定','内定→承諾','初年度定着'];
+    var rateLabels=['応募→1次面接','1次面接→内定','内定→承諾','初年度定着'];
     var html='';
     for(var i=0;i<STAGES.length;i++){
       var w=Math.max(14,c.counts[i]/max*100);
