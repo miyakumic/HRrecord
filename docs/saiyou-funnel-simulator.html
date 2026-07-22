@@ -4,6 +4,7 @@
     --ink:#181B22; --ink-2:#565E70; --ink-3:#828A9C; --line:#E0E3ED;
     --accent:#3B4CC0; --accent-soft:#EAECFA;
     --good:#1B8557; --good-soft:#E0F0E7; --warn:#B47513; --warn-soft:#F6ECD9; --miss:#C23A2C; --miss-soft:#F7E6E3;
+    --star:#C08A00; --star-soft:#FBF3D8;
     --shadow:0 1px 2px rgba(24,27,34,.05),0 6px 20px rgba(24,27,34,.06);
     --font-sans:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,"Noto Sans JP",Meiryo,sans-serif;
     --font-num:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
@@ -13,6 +14,7 @@
     --ink:#E7EAF1; --ink-2:#9AA3B4; --ink-3:#6C7486; --line:#29303C;
     --accent:#8290EE; --accent-soft:#20263A;
     --good:#46B584; --good-soft:#16281F; --warn:#DBA544; --warn-soft:#2C2416; --miss:#E27163; --miss-soft:#2E1E1C;
+    --star:#E0B84A; --star-soft:#2B2510;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
   }}
   :root[data-theme="light"]{
@@ -20,6 +22,7 @@
     --ink:#181B22; --ink-2:#565E70; --ink-3:#828A9C; --line:#E0E3ED;
     --accent:#3B4CC0; --accent-soft:#EAECFA;
     --good:#1B8557; --good-soft:#E0F0E7; --warn:#B47513; --warn-soft:#F6ECD9; --miss:#C23A2C; --miss-soft:#F7E6E3;
+    --star:#C08A00; --star-soft:#FBF3D8;
     --shadow:0 1px 2px rgba(24,27,34,.05),0 6px 20px rgba(24,27,34,.06);
   }
   :root[data-theme="dark"]{
@@ -27,6 +30,7 @@
     --ink:#E7EAF1; --ink-2:#9AA3B4; --ink-3:#6C7486; --line:#29303C;
     --accent:#8290EE; --accent-soft:#20263A;
     --good:#46B584; --good-soft:#16281F; --warn:#DBA544; --warn-soft:#2C2416; --miss:#E27163; --miss-soft:#2E1E1C;
+    --star:#E0B84A; --star-soft:#2B2510;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box}
@@ -35,38 +39,35 @@
   header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
   .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
   h1{font-size:clamp(21px,3.3vw,29px);margin:6px 0 4px;letter-spacing:-.01em;text-wrap:balance;font-weight:800}
-  .sub{color:var(--ink-2);font-size:14px;max-width:62ch}
+  .sub{color:var(--ink-2);font-size:14px;max-width:64ch}
   .themebtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:9px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit}
   .themebtn:hover{background:var(--surface-2)}
-  .readout{background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:20px 0 26px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+  .readout{background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:20px 0 12px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
   .readout .dot{color:var(--accent);font-weight:800;flex:none}
   .readout b{font-weight:700}
+  .policy{background:var(--star-soft);border:1px solid color-mix(in srgb,var(--star) 40%,var(--line));border-radius:12px;
+    padding:13px 18px;margin:0 0 26px;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .policy .st{flex:none}
+  .policy b{font-weight:800;color:var(--star)}
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
-
   .grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:start}
   .card-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
   .card-h h2{font-size:15px;margin:0;font-weight:700}
   .card-h .note{font-size:12px;color:var(--ink-3)}
   .funnelcard{padding:22px 24px 24px}
-
-  /* funnel */
-  .fstage{margin:0 auto}
-  .fbar{height:46px;border-radius:9px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
-    padding:0 14px;color:#fff;transition:width .45s cubic-bezier(.22,.61,.36,1);min-width:120px}
-  .fbar .nm{font-size:13px;font-weight:600;opacity:.95}
-  .fbar .ct{font-family:var(--font-num);font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
-  .conv{display:flex;align-items:center;justify-content:center;gap:8px;padding:5px 0;color:var(--ink-3);font-size:11.5px}
+  .fbar{height:42px;border-radius:9px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#fff;transition:width .45s cubic-bezier(.22,.61,.36,1);min-width:118px;position:relative}
+  .fbar .nm{font-size:13px;font-weight:600;opacity:.96}
+  .fbar .ct{font-family:var(--font-num);font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
+  .lever{position:absolute;right:-9px;top:-9px;background:var(--star);color:#3a2c00;font-size:10px;font-weight:800;padding:1px 7px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .conv{display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 0;color:var(--ink-3);font-size:11.5px}
   .conv .rate{font-family:var(--font-num);font-weight:700;color:var(--ink-2)}
-  .conv .drop{color:var(--ink-3)}
-  .s1{background:color-mix(in srgb,var(--accent) 40%,var(--surface))}
-  .s1 .nm,.s1 .ct{color:var(--ink)}
-  .s2{background:color-mix(in srgb,var(--accent) 60%,var(--surface))}
-  .s2 .nm,.s2 .ct{color:var(--ink)}
-  .s3{background:color-mix(in srgb,var(--accent) 80%,var(--surface))}
-  .s4{background:var(--accent)}
-  .s5{background:var(--good)}
-
-  /* kpi + money */
+  .conv.lv .rate{color:var(--star)}
+  .s1{background:color-mix(in srgb,var(--accent) 34%,var(--surface))} .s1 .nm,.s1 .ct{color:var(--ink)}
+  .s2{background:color-mix(in srgb,var(--accent) 48%,var(--surface))} .s2 .nm,.s2 .ct{color:var(--ink)}
+  .s3{background:color-mix(in srgb,var(--accent) 62%,var(--surface))}
+  .s4{background:color-mix(in srgb,var(--accent) 80%,var(--surface))}
+  .s5{background:var(--accent)}
+  .s6{background:var(--good)}
   .side{display:flex;flex-direction:column;gap:20px}
   .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .kbox{padding:14px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line)}
@@ -75,7 +76,6 @@
   .kbox .kv .u{font-size:13px;font-weight:600;color:var(--ink-2);margin-left:2px}
   .kbox.hl{background:color-mix(in srgb,var(--good) 12%,var(--surface));border-color:color-mix(in srgb,var(--good) 30%,var(--line))}
   .kbox.acc{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 25%,var(--line))}
-
   .money{padding:18px 20px}
   .money h3{margin:0 0 14px;font-size:14px;font-weight:700}
   .mrow{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:7px 0;border-bottom:1px dashed var(--line)}
@@ -84,7 +84,6 @@
   .mrow .v{font-family:var(--font-num);font-weight:600;font-variant-numeric:tabular-nums}
   .mrow.total{margin-top:6px;border-top:2px solid var(--line);border-bottom:0;padding-top:11px}
   .mrow.total .k{font-weight:700;color:var(--ink)} .mrow.total .v{font-weight:800;font-size:16px}
-
   .target{padding:16px 20px;display:flex;flex-direction:column;gap:12px}
   .target h3{margin:0;font-size:14px;font-weight:700}
   .tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center}
@@ -92,7 +91,6 @@
   .tgrid .tv{font-family:var(--font-num);font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
   .pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:4px 11px;border-radius:20px;align-self:flex-start}
   .pill.g{background:var(--good-soft);color:var(--good)} .pill.m{background:var(--miss-soft);color:var(--miss)}
-
   h3.sec{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0;font-weight:700}
   .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 14px;flex-wrap:wrap}
   .resetbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:9px;padding:8px 14px;font-size:12.5px;cursor:pointer;font-family:inherit;font-weight:600}
@@ -104,13 +102,17 @@
   .gh.gm .badge{background:var(--good)} .gh.gt .badge{background:var(--warn)}
   .cgroup .gh .t{font-size:13.5px;font-weight:700}
   .ctrl{display:block;margin-bottom:15px}.ctrl:last-child{margin-bottom:0}
+  .ctrl.lever{background:var(--star-soft);margin:-6px -8px 12px;padding:8px;border-radius:9px;border:1px solid color-mix(in srgb,var(--star) 35%,var(--line))}
   .ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
   .ctrl-name{font-size:12.5px;color:var(--ink-2)}
+  .ctrl.lever .ctrl-name{color:var(--star);font-weight:700}
   .ctrl-val{font-family:var(--font-num);font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums}
   input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:4px;background:var(--surface-3);outline:none;cursor:pointer;margin:6px 0 2px}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--accent);border:2px solid var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.25)}
   input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--accent);border:2px solid var(--surface)}
   input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .ctrl.lever input[type=range]::-webkit-slider-thumb{background:var(--star)}
+  .ctrl.lever input[type=range]::-moz-range-thumb{background:var(--star)}
   .gm input[type=range]::-webkit-slider-thumb{background:var(--good)}.gm input[type=range]::-moz-range-thumb{background:var(--good)}
   .gt input[type=range]::-webkit-slider-thumb{background:var(--warn)}.gt input[type=range]::-moz-range-thumb{background:var(--warn)}
   footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:11.5px;line-height:1.7}
@@ -123,39 +125,35 @@
   <header class="top">
     <div>
       <div class="eyebrow">採用ファネル・シミュレーター</div>
-      <h1>いまの応募の移行率で、何人採れて・いくらかかるか</h1>
-      <p class="sub">実際のファネル実績（応募→1次面接 21%→内定 14%→承諾 62%、応募660）が初期値。総移行率は計画想定11.6%に対し実測 約1.8%。応募数・各段階の移行率・お金の前提を動かすと、採用数と単価のバランスが即更新されます。</p>
+      <h1>今後の採用方針 ― 1次通過を18%→60%に上げると何が起きるか</h1>
+      <p class="sub">実測ファネル（応募660／応募→1次面接21%／1次通過18%／最終選考→内定60%／内定→承諾62%）が初期値。★の「1次通過」が今回の方針レバー。動かすと採用数と単価が即更新されます。</p>
     </div>
     <button class="themebtn" id="themeBtn" type="button">◐ テーマ切替</button>
   </header>
 
   <div class="readout"><span class="dot">▶</span><span id="takeaway"></span></div>
+  <div class="policy"><span class="st">🌟</span><span id="policyline"></span></div>
 
   <div class="grid">
-    <!-- FUNNEL -->
     <div class="panel funnelcard">
       <div class="card-h"><h2>採用ファネル（年間）</h2><span class="note">バー幅＝人数 ／ 段間＝移行率</span></div>
       <div id="funnel"></div>
     </div>
-
-    <!-- SIDE: KPI + MONEY + TARGET -->
     <div class="side">
       <div class="kpi">
         <div class="kbox acc"><div class="kl">採用数</div><div class="kv"><span id="kHire"></span><span class="u">名</span></div></div>
         <div class="kbox hl"><div class="kl">定着数（初年度）</div><div class="kv"><span id="kStay"></span><span class="u">名</span></div></div>
         <div class="kbox"><div class="kl">採用単価（直接費）</div><div class="kv"><span id="kCPA"></span><span class="u">万</span></div></div>
-        <div class="kbox"><div class="kl">定着単価（直接費）</div><div class="kv"><span id="kCPR"></span><span class="u">万</span></div></div>
+        <div class="kbox"><div class="kl">総移行率（応募→採用）</div><div class="kv"><span id="kOverall"></span><span class="u">%</span></div></div>
       </div>
-
       <div class="panel money">
         <h3>金額の内訳</h3>
         <div class="mrow"><span class="k">媒体・応募獲得（固定）</span><span class="v" id="mBaitai"></span></div>
         <div class="mrow"><span class="k">成功報酬 <small id="mFeeNote"></small></span><span class="v" id="mFee"></span></div>
         <div class="mrow total"><span class="k">直接費 計</span><span class="v" id="mDirect"></span></div>
-        <div class="mrow"><span class="k">定着投資（研修・メンター等）</span><span class="v" id="mTeichaku"></span></div>
+        <div class="mrow"><span class="k">定着投資</span><span class="v" id="mTeichaku"></span></div>
         <div class="mrow total"><span class="k">総投資 計</span><span class="v" id="mTotal"></span></div>
       </div>
-
       <div class="panel target">
         <h3>採用目標との対比</h3>
         <div class="tgrid">
@@ -168,7 +166,6 @@
     </div>
   </div>
 
-  <!-- CONTROLS -->
   <div class="toolbar"><h3 class="sec">前提を動かす</h3><button class="resetbtn" id="resetBtn" type="button">↺ 既定値に戻す</button></div>
   <div class="controls">
     <div class="panel cgroup">
@@ -177,14 +174,15 @@
         <input type="range" id="oubo" min="100" max="3000" step="10" value="660"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">応募 → 1次面接</span><span class="ctrl-val" id="r1_v"></span></div>
         <input type="range" id="r1" min="5" max="90" step="1" value="21"></label>
-      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">1次面接 → 内定</span><span class="ctrl-val" id="r2_v"></span></div>
-        <input type="range" id="r2" min="5" max="60" step="1" value="14"></label>
-      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">内定 → 承諾（採用）</span><span class="ctrl-val" id="r3_v"></span></div>
-        <input type="range" id="r3" min="40" max="100" step="1" value="62"></label>
-      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">初年度定着率</span><span class="ctrl-val" id="r4_v"></span></div>
-        <input type="range" id="r4" min="60" max="100" step="1" value="90"></label>
+      <label class="ctrl lever"><div class="ctrl-top"><span class="ctrl-name">🌟 1次面接 → 通過（1次選考通過率）</span><span class="ctrl-val" id="r2_v"></span></div>
+        <input type="range" id="r2" min="5" max="90" step="1" value="18"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">最終選考 → 内定（最終選考通過率）</span><span class="ctrl-val" id="r3_v"></span></div>
+        <input type="range" id="r3" min="20" max="100" step="1" value="60"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">内定 → 承諾（採用）</span><span class="ctrl-val" id="r4_v"></span></div>
+        <input type="range" id="r4" min="40" max="100" step="1" value="62"></label>
+      <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">初年度定着率</span><span class="ctrl-val" id="r5_v"></span></div>
+        <input type="range" id="r5" min="60" max="100" step="1" value="90"></label>
     </div>
-
     <div class="panel cgroup gm">
       <div class="gh gm"><span class="badge">円</span><span class="t">お金の前提</span></div>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">媒体・応募獲得費（年間固定）</span><span class="ctrl-val" id="baitai_v"></span></div>
@@ -194,110 +192,89 @@
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">定着投資（年間）</span><span class="ctrl-val" id="teichaku_v"></span></div>
         <input type="range" id="teichaku" min="0" max="1500" step="20" value="880"></label>
     </div>
-
     <div class="panel cgroup gt">
       <div class="gh gt"><span class="badge">標</span><span class="t">目標</span></div>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">採用目標数（年間）</span><span class="ctrl-val" id="goal_v"></span></div>
         <input type="range" id="goal" min="10" max="80" step="1" value="17"></label>
       <div style="font-size:12px;color:var(--ink-3);line-height:1.6;margin-top:6px">
-        目標を上げると「必要応募数」が跳ね、媒体費とのバランスが崩れる点が見えます。移行率を上げれば同じ応募で採用が増え、単価が下がります。
+        方針：偏差値切りなし・適性検査なし・スピード内定で <b>1次通過を18%→60%</b>。質の選別は試用期間（給与30→34→36万・3か月契約0で異動）に移す設計です。
       </div>
     </div>
   </div>
 
   <footer>
-    <b>計算の考え方</b>：採用数＝応募×(応募→面談)×(面談→内定)×(内定→承諾)。定着数＝採用×初年度定着率。直接費＝媒体固定費＋成功報酬×採用数。採用単価＝直接費÷採用数（応募を増やすほど媒体固定費が分散し、単価は成功報酬に漸近）。定着単価＝直接費÷定着数。必要応募数＝目標÷総移行率。<br>
-    <b>初期値</b>：実際のファネル実績（応募660／応募→1次面接21%／1次面接→内定14%／内定→承諾62%＝総移行率1.8%）。参考として計画書§7-2の想定は応募→面談60%→内定25%→承諾77%（総移行率11.6%）で、この差が最大の論点。単価・定着投資は§3・§4（平均78万・880万）。<br>
-    これは<b>前提を置いた試算</b>です。移行率は実際の月次実績で上書きすると精度が上がります。
+    <b>ファネル構造</b>：応募 →(応募→1次面接)→ 1次面接 →(1次通過＝1次選考通過率)→ 1次通過 →(最終選考→内定)→ 内定 →(内定→承諾)→ 採用 →(定着率)→ 定着。採用数＝応募×全段の積。採用単価＝直接費÷採用数（直接費＝媒体固定＋成功報酬×採用数）。必要応募数＝目標÷総移行率。<br>
+    <b>初期値</b>：応募660／応募→1次面接21%／1次通過18%（20期実測）／最終選考→内定60%／内定→承諾62%／定着90%。方針は1次通過を60%へ。単価・定着投資は計画§3・§4（平均78万・880万＝ここでは成功報酬50万＋媒体で近似）。前提は実データで上書き可。
   </footer>
 </div>
 
 <script>
 (function(){
-  var DEF={oubo:660,r1:21,r2:14,r3:62,r4:90,baitai:500,fee:50,teichaku:880,goal:17};
+  var DEF={oubo:660,r1:21,r2:18,r3:60,r4:62,r5:90,baitai:500,fee:50,teichaku:880,goal:17};
   var ids=Object.keys(DEF);
   function g(id){return document.getElementById(id)}
   function v(id){return parseFloat(g(id).value)}
   function man(x){return Math.round(x).toLocaleString('en-US')}
-  function r1d(x){return Math.round(x)}
-
-  var STAGES=[
-    {nm:'有効応募',cls:'s1'},{nm:'1次面接',cls:'s2'},{nm:'内定',cls:'s3'},{nm:'承諾（採用）',cls:'s4'},{nm:'定着',cls:'s5'}
-  ];
+  function rd(x){return Math.round(x)}
+  var STAGES=[{nm:'有効応募',cls:'s1'},{nm:'1次面接',cls:'s2'},{nm:'1次通過',cls:'s3',lever:1},
+              {nm:'内定',cls:'s4'},{nm:'承諾（採用）',cls:'s5'},{nm:'定着',cls:'s6'}];
+  var RATELBL=['応募→1次面接','1次通過（1次選考）','最終選考→内定','内定→承諾','初年度定着'];
 
   function calc(){
-    var oubo=v('oubo'),r1=v('r1')/100,r2=v('r2')/100,r3=v('r3')/100,r4=v('r4')/100;
-    var mensetsu=oubo*r1, naitei=mensetsu*r2, saiyou=naitei*r3, teichaku=saiyou*r4;
-    var overall=r1*r2*r3;
+    var oubo=v('oubo'),r1=v('r1')/100,r2=v('r2')/100,r3=v('r3')/100,r4=v('r4')/100,r5=v('r5')/100;
+    var c1=oubo, c2=oubo*r1, c3=c2*r2, c4=c3*r3, c5=c4*r4, c6=c5*r5;
+    var overall=r1*r2*r3*r4;
     var baitai=v('baitai'),fee=v('fee'),tinv=v('teichaku'),goal=v('goal');
-    var feeTotal=saiyou*fee;
-    var direct=baitai+feeTotal;
-    var total=direct+tinv;
-    var cpa=saiyou>0?direct/saiyou:0;
-    var cpr=teichaku>0?direct/teichaku:0;
-    var need=overall>0?goal/overall:0;
-    var gap=saiyou-goal;
-    return {oubo,mensetsu,naitei,saiyou,teichaku,overall,baitai,fee,feeTotal,direct,tinv,total,cpa,cpr,goal,need,gap,
-      counts:[oubo,mensetsu,naitei,saiyou,teichaku],rates:[r1,r2,r3,r4]};
+    var feeTotal=c5*fee, direct=baitai+feeTotal, total=direct+tinv;
+    var cpa=c5>0?direct/c5:0, cpr=c6>0?direct/c6:0;
+    var need=overall>0?goal/overall:0, gap=c5-goal;
+    // policy: force r2=0.60
+    var overP=r1*0.60*r3*r4, hireP=oubo*overP, ratio=c5>0?hireP/c5:0, needP=overP>0?goal/overP:0;
+    return {oubo,c1,c2,c3,c4,c5,c6,overall,baitai,fee,feeTotal,direct,tinv,total,cpa,cpr,goal,need,gap,
+            overP,hireP,ratio,needP,rates:[r1,r2,r3,r4,r5],counts:[c1,c2,c3,c4,c5,c6]};
   }
-
   function render(){
     var c=calc(),max=c.oubo||1;
-    // readouts
-    g('oubo_v').textContent=r1d(v('oubo'))+'名';
-    g('r1_v').textContent=v('r1')+'%'; g('r2_v').textContent=v('r2')+'%';
-    g('r3_v').textContent=v('r3')+'%'; g('r4_v').textContent=v('r4')+'%';
-    g('baitai_v').textContent=man(v('baitai'))+'万円';
-    g('fee_v').textContent=man(v('fee'))+'万円';
-    g('teichaku_v').textContent=man(v('teichaku'))+'万円';
-    g('goal_v').textContent=r1d(v('goal'))+'名';
+    g('oubo_v').textContent=rd(v('oubo'))+'名';
+    g('r1_v').textContent=v('r1')+'%'; g('r2_v').textContent=v('r2')+'%'; g('r3_v').textContent=v('r3')+'%';
+    g('r4_v').textContent=v('r4')+'%'; g('r5_v').textContent=v('r5')+'%';
+    g('baitai_v').textContent=man(v('baitai'))+'万円'; g('fee_v').textContent=man(v('fee'))+'万円';
+    g('teichaku_v').textContent=man(v('teichaku'))+'万円'; g('goal_v').textContent=rd(v('goal'))+'名';
 
-    // funnel
-    var rateLabels=['応募→1次面接','1次面接→内定','内定→承諾','初年度定着'];
     var html='';
     for(var i=0;i<STAGES.length;i++){
-      var w=Math.max(14,c.counts[i]/max*100);
-      html+='<div class="fstage"><div class="fbar '+STAGES[i].cls+'" style="width:'+w+'%">'+
-            '<span class="nm">'+STAGES[i].nm+'</span><span class="ct">'+r1d(c.counts[i])+'</span></div></div>';
+      var w=Math.max(13,c.counts[i]/max*100);
+      html+='<div><div class="fbar '+STAGES[i].cls+'" style="width:'+w+'%">'+
+            '<span class="nm">'+STAGES[i].nm+'</span><span class="ct">'+rd(c.counts[i])+'</span>'+
+            (STAGES[i].lever?'<span class="lever">★方針レバー</span>':'')+'</div></div>';
       if(i<STAGES.length-1){
-        var drop=c.counts[i]-c.counts[i+1];
-        html+='<div class="conv"><span class="rate">'+Math.round(c.rates[i]*100)+'%</span>'+
-              '<span>'+rateLabels[i]+'</span><span class="drop">（−'+r1d(drop)+'）</span></div>';
+        var drop=c.counts[i]-c.counts[i+1], lv=(i===1)?' lv':'';
+        html+='<div class="conv'+lv+'"><span class="rate">'+Math.round(c.rates[i]*100)+'%</span>'+
+              '<span>'+RATELBL[i]+'</span><span>（−'+rd(drop)+'）</span></div>';
       }
     }
     g('funnel').innerHTML=html;
 
-    // kpi
-    g('kHire').textContent=r1d(c.saiyou);
-    g('kStay').textContent=r1d(c.teichaku);
-    g('kCPA').textContent=man(c.cpa);
-    g('kCPR').textContent=man(c.cpr);
-
-    // money
-    g('mBaitai').textContent=man(c.baitai)+'万円';
-    g('mFee').textContent=man(c.feeTotal)+'万円';
-    g('mFeeNote').textContent='('+man(c.fee)+'万 × '+r1d(c.saiyou)+'名)';
-    g('mDirect').textContent=man(c.direct)+'万円';
-    g('mTeichaku').textContent=man(c.tinv)+'万円';
+    g('kHire').textContent=rd(c.c5); g('kStay').textContent=rd(c.c6);
+    g('kCPA').textContent=man(c.cpa); g('kOverall').textContent=(c.overall*100).toFixed(1);
+    g('mBaitai').textContent=man(c.baitai)+'万円'; g('mFee').textContent=man(c.feeTotal)+'万円';
+    g('mFeeNote').textContent='('+man(c.fee)+'万 × '+rd(c.c5)+'名)';
+    g('mDirect').textContent=man(c.direct)+'万円'; g('mTeichaku').textContent=man(c.tinv)+'万円';
     g('mTotal').textContent=man(c.total)+'万円';
 
-    // target
-    g('tGoal').textContent=r1d(c.goal)+'名';
-    g('tNeed').textContent=r1d(c.need)+'名';
-    var gapTxt=(c.gap>=0?'+':'−')+r1d(Math.abs(c.gap))+'名';
-    g('tGap').textContent=gapTxt;
+    g('tGoal').textContent=rd(c.goal)+'名'; g('tNeed').textContent=rd(c.need)+'名';
+    g('tGap').textContent=(c.gap>=0?'+':'−')+rd(Math.abs(c.gap))+'名';
     g('tGap').style.color=c.gap>=-0.5?'var(--good)':'var(--miss)';
     var pill=g('tPill');
-    if(c.gap>=-0.5){pill.className='pill g';pill.textContent='目標達成（応募 '+r1d(c.oubo)+' ≥ 必要 '+r1d(c.need)+'）';}
-    else{pill.className='pill m';pill.textContent='応募が '+r1d(c.need-c.oubo)+'名分 不足（総移行率 '+(c.overall*100).toFixed(1)+'%）';}
+    if(c.gap>=-0.5){pill.className='pill g';pill.textContent='目標達成（応募 '+rd(c.oubo)+' ≥ 必要 '+rd(c.need)+'）';}
+    else{pill.className='pill m';pill.textContent='応募が '+rd(c.need-c.oubo)+'名分 不足';}
 
-    // takeaway
-    g('takeaway').innerHTML='応募 <b>'+r1d(c.oubo)+'</b> → 採用 <b>'+r1d(c.saiyou)+'</b>（総移行率 <b>'+(c.overall*100).toFixed(1)+
-      '%</b>）→ 定着 <b>'+r1d(c.teichaku)+'</b>。採用単価 <b>'+man(c.cpa)+'万</b>／定着単価 <b>'+man(c.cpr)+
-      '万</b>、直接費 <b>'+man(c.direct)+'万円</b>。'+
-      (c.gap>=-0.5?'目標 '+r1d(c.goal)+' 名は<b>充足</b>。':'目標に <b>▲'+r1d(Math.abs(c.gap))+'名</b>、応募を増やすか移行率を上げる必要。');
+    g('takeaway').innerHTML='応募 <b>'+rd(c.oubo)+'</b> → 採用 <b>'+rd(c.c5)+'</b>（総移行率 <b>'+(c.overall*100).toFixed(1)+
+      '%</b>）→ 定着 <b>'+rd(c.c6)+'</b>。採用単価 <b>'+man(c.cpa)+'万</b>、直接費 <b>'+man(c.direct)+'万円</b>。';
+    g('policyline').innerHTML='<b>方針：1次通過を60%に上げると</b> → 同じ応募'+rd(c.oubo)+'で採用 <b>'+rd(c.hireP)+'名</b>'+
+      '（現状'+rd(c.c5)+'名の <b>×'+c.ratio.toFixed(1)+'</b>）。目標'+rd(c.goal)+'名に必要な応募は '+rd(c.need)+
+      ' → <b>'+rd(c.needP)+'</b> に激減。';
   }
-
   ids.forEach(function(id){g(id).addEventListener('input',render)});
   g('resetBtn').addEventListener('click',function(){ids.forEach(function(id){g(id).value=DEF[id]});render()});
   g('themeBtn').addEventListener('click',function(){
