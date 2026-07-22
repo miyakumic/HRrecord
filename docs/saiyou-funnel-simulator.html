@@ -46,11 +46,16 @@
   .readout .dot{color:var(--accent);font-weight:800;flex:none}
   .readout b{font-weight:700}
   .policy{background:var(--star-soft);border:1px solid color-mix(in srgb,var(--star) 40%,var(--line));border-radius:12px;
-    padding:13px 18px;margin:0 0 26px;font-size:14px;display:flex;gap:10px;align-items:flex-start}
-  .policy .st{flex:none}
+    padding:14px 18px 15px;margin:0 0 26px;font-size:14px;display:flex;flex-direction:column;gap:8px}
+  .policy .policy-ctrl{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .policy .pname{font-weight:700;color:var(--star);font-size:13px}
+  .policy .policy-ctrl .ctrl-val{margin-left:auto;font-family:var(--font-num);font-size:14px;font-weight:800}
+  .policy input[type=range]::-webkit-slider-thumb{background:var(--star)}
+  .policy input[type=range]::-moz-range-thumb{background:var(--star)}
   .policy b{font-weight:800;color:var(--star)}
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
   .grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:start}
+  .grid>*,.controls>*{min-width:0}
   .card-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px}
   .card-h h2{font-size:15px;margin:0;font-weight:700}
   .card-h .note{font-size:12px;color:var(--ink-3)}
@@ -58,7 +63,7 @@
   .fbar{height:42px;border-radius:9px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#fff;transition:width .45s cubic-bezier(.22,.61,.36,1);min-width:118px;position:relative}
   .fbar .nm{font-size:13px;font-weight:600;opacity:.96}
   .fbar .ct{font-family:var(--font-num);font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
-  .lever{position:absolute;right:-9px;top:-9px;background:var(--star);color:#3a2c00;font-size:10px;font-weight:800;padding:1px 7px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .lever{position:absolute;right:8px;top:-9px;background:var(--star);color:#3a2c00;font-size:10px;font-weight:800;padding:1px 7px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
   .conv{display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 0;color:var(--ink-3);font-size:11.5px}
   .conv .rate{font-family:var(--font-num);font-weight:700;color:var(--ink-2)}
   .conv.lv .rate{color:var(--star)}
@@ -102,22 +107,20 @@
   .gh.gm .badge{background:var(--good)} .gh.gt .badge{background:var(--warn)}
   .cgroup .gh .t{font-size:13.5px;font-weight:700}
   .ctrl{display:block;margin-bottom:15px}.ctrl:last-child{margin-bottom:0}
-  .ctrl.lever{background:var(--star-soft);margin:-6px -8px 12px;padding:8px;border-radius:9px;border:1px solid color-mix(in srgb,var(--star) 35%,var(--line))}
-  .ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+  .ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;gap:8px}
   .ctrl-name{font-size:12.5px;color:var(--ink-2)}
-  .ctrl.lever .ctrl-name{color:var(--star);font-weight:700}
   .ctrl-val{font-family:var(--font-num);font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums}
   input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:4px;background:var(--surface-3);outline:none;cursor:pointer;margin:6px 0 2px}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--accent);border:2px solid var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.25)}
   input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--accent);border:2px solid var(--surface)}
   input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .ctrl.lever input[type=range]::-webkit-slider-thumb{background:var(--star)}
-  .ctrl.lever input[type=range]::-moz-range-thumb{background:var(--star)}
   .gm input[type=range]::-webkit-slider-thumb{background:var(--good)}.gm input[type=range]::-moz-range-thumb{background:var(--good)}
   .gt input[type=range]::-webkit-slider-thumb{background:var(--warn)}.gt input[type=range]::-moz-range-thumb{background:var(--warn)}
   footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:11.5px;line-height:1.7}
   footer b{color:var(--ink-2)}
-  @media (max-width:860px){.grid{grid-template-columns:1fr}.controls{grid-template-columns:1fr}}
+  @media (max-width:1180px){.controls{grid-template-columns:1fr 1fr}}
+  @media (max-width:1000px){.grid{grid-template-columns:1fr}}
+  @media (max-width:840px){.controls{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -132,7 +135,11 @@
   </header>
 
   <div class="readout"><span class="dot">▶</span><span id="takeaway"></span></div>
-  <div class="policy"><span class="st">🌟</span><span id="policyline"></span></div>
+  <div class="policy">
+    <div class="policy-ctrl"><span>🌟</span><span class="pname">方針レバー：1次面接 → 通過（1次選考通過率）／ 実測18% → 方針60%</span><span class="ctrl-val" id="r2_v"></span></div>
+    <input type="range" id="r2" min="5" max="90" step="1" value="18" aria-label="1次選考通過率">
+    <div id="policyline"></div>
+  </div>
 
   <div class="grid">
     <div class="panel funnelcard">
@@ -174,8 +181,6 @@
         <input type="range" id="oubo" min="100" max="3000" step="10" value="660"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">応募 → 1次面接</span><span class="ctrl-val" id="r1_v"></span></div>
         <input type="range" id="r1" min="5" max="90" step="1" value="21"></label>
-      <label class="ctrl lever"><div class="ctrl-top"><span class="ctrl-name">🌟 1次面接 → 通過（1次選考通過率）</span><span class="ctrl-val" id="r2_v"></span></div>
-        <input type="range" id="r2" min="5" max="90" step="1" value="18"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">最終選考 → 内定（最終選考通過率）</span><span class="ctrl-val" id="r3_v"></span></div>
         <input type="range" id="r3" min="20" max="100" step="1" value="60"></label>
       <label class="ctrl"><div class="ctrl-top"><span class="ctrl-name">内定 → 承諾（採用）</span><span class="ctrl-val" id="r4_v"></span></div>
@@ -228,10 +233,10 @@
     var feeTotal=c5*fee, direct=baitai+feeTotal, total=direct+tinv;
     var cpa=c5>0?direct/c5:0, cpr=c6>0?direct/c6:0;
     var need=overall>0?goal/overall:0, gap=c5-goal;
-    // policy: force r2=0.60
-    var overP=r1*0.60*r3*r4, hireP=oubo*overP, ratio=c5>0?hireP/c5:0, needP=overP>0?goal/overP:0;
+    // baseline: 20期実測の1次通過18%と比較
+    var over18=r1*0.18*r3*r4, hire18=oubo*over18, ratio=hire18>0?c5/hire18:0, need18=over18>0?goal/over18:0;
     return {oubo,c1,c2,c3,c4,c5,c6,overall,baitai,fee,feeTotal,direct,tinv,total,cpa,cpr,goal,need,gap,
-            overP,hireP,ratio,needP,rates:[r1,r2,r3,r4,r5],counts:[c1,c2,c3,c4,c5,c6]};
+            over18,hire18,ratio,need18,rates:[r1,r2,r3,r4,r5],counts:[c1,c2,c3,c4,c5,c6]};
   }
   function render(){
     var c=calc(),max=c.oubo||1;
@@ -271,9 +276,9 @@
 
     g('takeaway').innerHTML='応募 <b>'+rd(c.oubo)+'</b> → 採用 <b>'+rd(c.c5)+'</b>（総移行率 <b>'+(c.overall*100).toFixed(1)+
       '%</b>）→ 定着 <b>'+rd(c.c6)+'</b>。採用単価 <b>'+man(c.cpa)+'万</b>、直接費 <b>'+man(c.direct)+'万円</b>。';
-    g('policyline').innerHTML='<b>方針：1次通過を60%に上げると</b> → 同じ応募'+rd(c.oubo)+'で採用 <b>'+rd(c.hireP)+'名</b>'+
-      '（現状'+rd(c.c5)+'名の <b>×'+c.ratio.toFixed(1)+'</b>）。目標'+rd(c.goal)+'名に必要な応募は '+rd(c.need)+
-      ' → <b>'+rd(c.needP)+'</b> に激減。';
+    g('policyline').innerHTML='実測18%なら同じ応募'+rd(c.oubo)+'で採用 <b>'+rd(c.hire18)+'名</b>（目標'+rd(c.goal)+
+      '名に応募 '+rd(c.need18)+' 必要） → いまの設定 <b>'+Math.round(c.rates[1]*100)+'%</b> なら採用 <b>'+rd(c.c5)+
+      '名（×'+c.ratio.toFixed(1)+'）</b>・必要応募 <b>'+rd(c.need)+'</b>。';
   }
   ids.forEach(function(id){g(id).addEventListener('input',render)});
   g('resetBtn').addEventListener('click',function(){ids.forEach(function(id){g(id).value=DEF[id]});render()});
